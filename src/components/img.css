@@ -1,0 +1,14 @@
+@keyframes taper{
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(0)
+    }
+}
+img{
+    transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}

@@ -1,16 +1,11 @@
-// import { motion } from "framer-motion";
+import "./img.css";
 
 export default function Sac(props){
+    console.log(`${props.rotato} deg`);
+    
     return(
         <div>
-            <img src={props.url} alt="sac de box" onClick={props.action}/>
+            <img src={props.url} alt="sac de box" onClick={props.action}   style={{ transform: `rotate(${props.rotato}deg)` }}/>
         </div>
     )
 }
-// export function SacCasser(){
-//     return(
-//         <>
-//             <img src={bagCasser} alt="sac de box pas casser"/>
-//         </>
-//     )
-// }

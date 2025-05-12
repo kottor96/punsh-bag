@@ -10,9 +10,16 @@ import bag from './assets/bag.png'
 
 function App() {
   const [pv,setPv] = useState(100)
+  const [rotate,setRotate] = useState(0)
   // const [rotate, setRotate] = useState(0)
-
-
+  let time
+  function vibration(deg) {
+    setRotate(rotate+deg*2)
+    !time && clearTimeout(time)
+    time = setTimeout(()=>{
+      setRotate(0)
+    },300)
+  }
   let random = Math.round(Math.random()*20)
   let degat = 10
   function restart() {
@@ -21,13 +28,15 @@ function App() {
   pv < 0 && setPv(0);
   function taper(){
     setPv(pv-degat)
-    random = Math.round(Math.random()*20)
-    setRotate(rotate+degat)
+    random = Math.round(Math.random()*20) 
+    vibration(degat)
   }
   function taper2() {
-    setPv(pv-(degat*2))
+    let degat2=degat*2
+    setPv(pv-(degat2))
     random = Math.round(Math.random()*20)
-    setRotate(rotate+degat*2)
+    vibration(degat2)
+    
   }
   console.log(pv);
   
@@ -38,7 +47,7 @@ function App() {
           <Bar pdv={pv}/>
         </div>
         <div>
-          {pv <= 0 ?  <Sac url={bagCasser}/> : random>6 ?<Sac url={bag} action={taper}/>: <Sac url={bag} action={taper2}/>}
+          {pv <= 0 ?  <Sac url={bagCasser} rotato={rotate}/> : random>6 ?<Sac url={bag} action={taper} rotato={rotate}/>: <Sac url={bag} action={taper2} rotato={rotate}/>}
         </div>
         <div>
           {pv<=0 ? 
