@@ -11,7 +11,9 @@ import bag from './assets/bag.png'
 function App() {
   const [pv,setPv] = useState(100)
   const [rotate,setRotate] = useState(0)
-  // const [rotate, setRotate] = useState(0)
+
+
+
   let time
   function vibration(deg) {
     setRotate(rotate+deg*2)
@@ -20,17 +22,25 @@ function App() {
       setRotate(0)
     },1000)
   }
+
+  // randomazeur
   let random = Math.round(Math.random()*20)
-  let degat = 10
+  
+  // reset
   function restart() {
     setPv(100)
   }
+
+  // definir dégat
+  let degat = 10
+  // remet les pv a 0 pour ne pas avoir de valeur negative
   pv < 0 && setPv(0);
   function taper(){
     setPv(pv-degat)
     random = Math.round(Math.random()*20) 
     vibration(degat)
   }
+  // critical
   function taper2() {
     let degat2=degat*2
     setPv(pv-(degat2))
@@ -38,7 +48,7 @@ function App() {
     vibration(degat2)
     
   }
-  console.log(pv);
+  // console.log(pv);
   
   return(
     <>
