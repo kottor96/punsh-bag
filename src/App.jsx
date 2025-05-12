@@ -15,10 +15,10 @@ function App() {
   let time
   function vibration(deg) {
     setRotate(rotate+deg*2)
-    !time && clearTimeout(time)
+    time && clearTimeout(time)
     time = setTimeout(()=>{
       setRotate(0)
-    },300)
+    },1000)
   }
   let random = Math.round(Math.random()*20)
   let degat = 10
