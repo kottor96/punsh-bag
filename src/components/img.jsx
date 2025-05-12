@@ -1,17 +1,16 @@
-import bagCasser from '../assets/bag-burst.png'
-import bag from '../assets/bag.png'
+// import { motion } from "framer-motion";
 
-export function Sac(props){
+export default function Sac(props){
     return(
         <div>
-            <img src={bag} alt="sac de box" onClick={props.action}/>
+            <img src={props.url} alt="sac de box" onClick={props.action}/>
         </div>
     )
 }
-export function SacCasser(){
-    return(
-        <>
-            <img src={bagCasser} alt="sac de box pas casser"/>
-        </>
-    )
-}
+// export function SacCasser(){
+//     return(
+//         <>
+//             <img src={bagCasser} alt="sac de box pas casser"/>
+//         </>
+//     )
+// }

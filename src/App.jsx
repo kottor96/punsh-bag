@@ -1,10 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import { Sac,SacCasser } from './components/img'
+import Sac from './components/img'
 import Bar from './components/bar'
 import Btn from './components/btn'
+import bagCasser from './assets/bag-burst.png'
+import bag from './assets/bag.png'
+
+
+
 function App() {
   const [pv,setPv] = useState(100)
+  // const [rotate, setRotate] = useState(0)
+
+
   let random = Math.round(Math.random()*20)
   let degat = 10
   function restart() {
@@ -14,10 +22,12 @@ function App() {
   function taper(){
     setPv(pv-degat)
     random = Math.round(Math.random()*20)
+    setRotate(rotate+degat)
   }
   function taper2() {
     setPv(pv-(degat*2))
     random = Math.round(Math.random()*20)
+    setRotate(rotate+degat*2)
   }
   console.log(pv);
   
@@ -28,7 +38,7 @@ function App() {
           <Bar pdv={pv}/>
         </div>
         <div>
-          {pv <= 0 ?  <SacCasser pdv={pv}/> : random>6 ?<Sac pdv={pv} action={taper}/>: <Sac pdv={pv} action={taper2}/>}
+          {pv <= 0 ?  <Sac url={bagCasser}/> : random>6 ?<Sac url={bag} action={taper}/>: <Sac url={bag} action={taper2}/>}
         </div>
         <div>
           {pv<=0 ? 
